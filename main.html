@@ -1,8 +1,9 @@
 <div>
-    <form name="search-user" ng-submit="getUserInfo(username)">
-        <input type="text" ng-model="username" required>
-        <button ng-click="">Search</button>
 
+    <form name="search-user" ng-submit="getUserInfo(username)">
+       <label for="username-field">Insert a username (e.g "edmilsonrobson", "torvalds"...)</label>
+        <input id="username-field" type="text" ng-model="username" required>
+        <button ng-click="">Search</button>
     </form>
 
 
