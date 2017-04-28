@@ -9,6 +9,13 @@
             });
         };
 
+        var getRepoContributors = function(username, reponame){
+            return $http.get("https://api.github.com/repos/" + username + "/" + reponame + "/contributors")
+                .then(function(response){
+                return response.data;
+            });;
+        };
+
         var getRepos = function(username){
             return $http.get("https://api.github.com/users/" + username + "/repos")
                 .then(function(response){
