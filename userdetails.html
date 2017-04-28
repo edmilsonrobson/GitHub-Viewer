@@ -2,13 +2,19 @@
 
     <h2>{{user.name}}</h2>
     {{ error }}
-    <div class="row">
-        <img style="width:100px;height:100px;" ng-src="{{user.avatar_url}}" title="{{user.name}}">
-        <p>Name: {{user.name}}</p>
-        <p>Location: {{user.location}}</p>
-        <p>Member since {{user.created_at | date}}</p>
-        <p>Bio: {{user.bio}}</p>
+    <div class="row" ng-show="user">
+        <div class="col-xs-3">
+            <img style="width: 100%;" ng-src="{{user.avatar_url}}" title="{{user.name}}">
+        </div>
+        <div class="col-xs-9">
+            <p><b>Name:</b> {{user.name}}</p>
+            <p><b>Location:</b> {{user.location}}</p>
+            <p><b>Member since:</b> {{user.created_at | date}}</p>
+            <p><b>Bio:</b> {{user.bio}}</p>
+        </div>
     </div>
+
+    <hr>
 
     <label for="sort-dropdown">Sort by: </label>
     <select id="sort-dropdown" ng-model="sortOrder">

@@ -1,17 +1,17 @@
 <div>
    {{error}}
-    <h2>{{reponame}} (Owner: {{repo.owner.login}})</h2>
+    <h2><a href="https://github.com/{{repo.owner.login}}/{{reponame}}" target="_blank">{{reponame}}</a> (Owner: {{repo.owner.login}})</h2>
     <h3>Overview</h3>
     <p><b>Description:</b>{{repo.description}}</p>
 
-    <p><b>Open Issues</b> {{repo.open_issues}}</p>
+    <p><b>Open Issues:</b> {{repo.open_issues}}</p>
 
     <h3>Contributors</h3>
 
     <div>
-       <ul ng-show="contributors">
-           <li ng-repeat="contributor in contributors">
-               <span><img ng-src="{{contributor.avatar_url}}" alt="" width="64"><a href ng-click="goToUserPage(contributor.login)">{{contributor.login}}</a></span>
+       <ul ng-show="contributors" class="list-group">
+           <li ng-repeat="contributor in contributors" class="list-group-item">
+               <span><img ng-src="{{contributor.avatar_url}}" alt="" width="64"><a href ng-click="goToUserPage(contributor.login)"> {{contributor.login}}</a></span>
            </li>
        </ul>
 
