@@ -1,7 +1,7 @@
 (function(){
     var app = angular.module("GithubViewer");
 
-    app.controller("RepoController", function($scope, $github){
+    app.controller("RepoController", function($scope, $github, $routeParams){
 
     });
 })();
