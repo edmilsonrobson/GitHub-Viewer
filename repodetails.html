@@ -1,5 +1,19 @@
 <div>
    {{error}}
     <h2>{{reponame}} (Owner: {{repo.owner.login}})</h2>
-    <h3>{{repo.description}}</h3>
+    <h3>Overview</h3>
+    <p><b>Description:</b>{{repo.description}}</p>
+
+    <p><b>Open Issues</b> {{repo.open_issues}}</p>
+
+    <h3>Contributors</h3>
+
+    <div>
+       <ul ng-show="contributors">
+           <li ng-repeat="contributor in contributors">
+               <span><img ng-src="{{contributor.avatar_url}}" alt="" width="64">{{contributor.login}}</span>
+           </li>
+       </ul>
+
+    </div>
 </div>
