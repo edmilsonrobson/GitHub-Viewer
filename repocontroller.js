@@ -1,7 +1,7 @@
 (function(){
     var app = angular.module("GithubViewer");
 
-    app.controller('RepoController', function($scope, github, $routeParams, $log){
+    app.controller('RepoController', function($scope, github, $routeParams, $log, $location){
         $scope.username = $routeParams.username;
         $scope.reponame = $routeParams.reponame;
 
@@ -17,7 +17,9 @@
         github.getRepo($scope.username, $scope.reponame).then(onRepoGet);
         github.getRepoContributors($scope.username, $scope.reponame).then(onContributorsGet);
 
-
+        $scope.goToUserPage = function(username){
+            $location.path("/user/" + username);
+        }
 
 
     });

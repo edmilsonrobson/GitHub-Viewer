@@ -11,7 +11,7 @@
     <div>
        <ul ng-show="contributors">
            <li ng-repeat="contributor in contributors">
-               <span><img ng-src="{{contributor.avatar_url}}" alt="" width="64">{{contributor.login}}</span>
+               <span><img ng-src="{{contributor.avatar_url}}" alt="" width="64"><a href ng-click="goToUserPage(contributor.login)">{{contributor.login}}</a></span>
            </li>
        </ul>
 

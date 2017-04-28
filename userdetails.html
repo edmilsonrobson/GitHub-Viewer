@@ -2,12 +2,12 @@
 
     <h2>{{user.name}}</h2>
     {{ error }}
-    <div>
+    <div class="row">
+        <img style="width:100px;height:100px;" ng-src="{{user.avatar_url}}" title="{{user.name}}">
         <p>Name: {{user.name}}</p>
         <p>Location: {{user.location}}</p>
         <p>Member since {{user.created_at | date}}</p>
         <p>Bio: {{user.bio}}</p>
-        <img style="width:100px;height:100px;" ng-src="{{user.avatar_url}}" title="{{user.name}}">
     </div>
 
     <label for="sort-dropdown">Sort by: </label>
@@ -17,7 +17,7 @@
         <option value="-size">Size</option>
         <option value="+language">Language</option>
     </select>
-    <table>
+    <table ng-show="repos" class="table">
         <thead>
             <tr>
                 <th>Repository Name</th>
@@ -28,7 +28,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="repo in repos | orderBy:sortOrder">
-                <td>{{repo.name}}</td>
+                <td><a href ng-click="onRepoClick(repo.name)">{{repo.name}}</a></td>
                 <td>{{repo.stargazers_count}}</td>
                 <td>{{repo.size}}</td>
                 <td>{{repo.language}}</td>
