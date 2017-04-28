@@ -1,6 +1,6 @@
 (function(){
 
-    var github = function($http){
+    var github = function($http, $log){
 
         var getUser = function(username){
             return $http.get("https://api.github.com/users/" + username)
@@ -24,11 +24,14 @@
         }
 
         var getRepo = function(username, reponame){
+            $log.log("Get repo!");
             return $http.get("https://api.github.com/repos/" + username + "/" + reponame).then(function(response){
                return response.data;
             });
         }
         return {
+            getRepo: getRepo,
+            getRepoContributors: getRepoContributors,
             getUser: getUser,
             getRepos: getRepos
         };
