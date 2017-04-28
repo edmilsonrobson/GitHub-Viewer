@@ -28,6 +28,6 @@
         };
     };
 
-    var module = angular.module("GithubViewer");
-    module.factory("github", github);
+    var app = angular.module("GithubViewer");
+    app.factory("github", github);
 })();
